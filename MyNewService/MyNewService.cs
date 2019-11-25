@@ -18,6 +18,7 @@ namespace MyNewService
 
         protected override void OnStart(string[] args)
         {
+            eventLog1.WriteEntry("In OnStart");
         }
 
         protected override void OnStop()
