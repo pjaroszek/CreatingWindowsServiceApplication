@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Linq;
+﻿using System.Diagnostics;
 using System.ServiceProcess;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyNewService
 {
@@ -15,6 +8,12 @@ namespace MyNewService
         public MyNewService()
         {
             InitializeComponent();
+            eventLog1 = new System.Diagnostics.EventLog();
+            if (!EventLog.SourceExists("MySource")) { EventLog.CreateEventSource("MySource", "MyNewLog"); }
+
+            eventLog1.Source = "MySource";
+            eventLog1.Log = "MyNewLog";
+
         }
 
         protected override void OnStart(string[] args)
