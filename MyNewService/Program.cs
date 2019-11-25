@@ -16,5 +16,11 @@ namespace MyNewService
             };
             ServiceBase.Run(ServicesToRun);
         }
+
+        //Instal Service:
+        //installutil MyNewService.exe
+
+        //Uninstall service:
+        //installutil.exe /u MyNewService.exe
     }
 }
