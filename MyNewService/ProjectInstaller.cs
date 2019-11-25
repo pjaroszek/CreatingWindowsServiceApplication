@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using System.ComponentModel;
-using System.Configuration.Install;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Jaorszek.ProofOfConcept.MyNewService
 {
@@ -15,5 +10,14 @@ namespace Jaorszek.ProofOfConcept.MyNewService
         {
             InitializeComponent();
         }
+
+        protected override void OnBeforeInstall(IDictionary savedState)
+        {
+            //            string parameter = "MySource1\" \"MyLogFile1";
+            //            System.Runtime.Remoting.Contexts.Context.Parameters["assemblypath"] = "\"" + System.Runtime.Remoting.Contexts.Context.Parameters["assemblypath"] + "\" \"" + parameter + "\"";
+            //            base.OnBeforeInstall(savedState);
+        }
+
     }
+
 }

@@ -10,15 +10,32 @@ namespace MyNewService
     {
         private int eventId = 1;
 
-        public MyNewService()
+        public MyNewService(string[] args)
         {
             InitializeComponent();
-            eventLog1 = new System.Diagnostics.EventLog();
-            if (!EventLog.SourceExists("MySource")) { EventLog.CreateEventSource("MySource", "MyNewLog"); }
 
-            eventLog1.Source = "MySource";
-            eventLog1.Log = "MyNewLog";
+            string eventSourceName = "MySource";
+            string logName = "MyNewLog";
 
+            if (args.Length > 0)
+            {
+                eventSourceName = args[0];
+            }
+
+            if (args.Length > 1)
+            {
+                logName = args[1];
+            }
+
+            eventLog1 = new EventLog();
+
+            if (!EventLog.SourceExists(eventSourceName))
+            {
+                EventLog.CreateEventSource(eventSourceName, logName);
+            }
+
+            eventLog1.Source = eventSourceName;
+            eventLog1.Log = logName;
         }
 
         protected override void OnStart(string[] args)
